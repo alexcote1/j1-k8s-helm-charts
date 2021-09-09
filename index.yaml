@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   graph-kubernetes:
   - apiVersion: v2
+    appVersion: 0.3.1
+    created: "2021-09-09T18:16:36.574741101Z"
+    description: Converts K8s resources into a graph model for ingestion into JupiterOne.
+    digest: 9e5007b1138917445f895e293e20878d213bcfa38ce5d24bc280b8517fbc4167
+    name: graph-kubernetes
+    type: application
+    urls:
+    - https://github.com/JupiterOne/helm-charts/releases/download/graph-kubernetes-0.2.0/graph-kubernetes-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 0.1.0
     created: "2021-08-19T12:58:46.105153163Z"
     description: Converts K8s resources into a graph model for ingestion into JupiterOne.
