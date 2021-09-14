@@ -86,9 +86,10 @@ Return the appropriate apiVersion for rbac.
 
 {{/*
 Return the appropriate apiVersion for cronjob.
+We also add an extra check on the minimum k8s version because not all vendors 
 */}}
 {{- define "cronjob.apiVersion" -}}
-{{- if .Capabilities.APIVersions.Has "batch/v1" }}
+{{- if and (.Capabilities.APIVersions.Has "batch/v1") (semverCompare ">=1.21.0-0" .Capabilities.KubeVersion.GitVersion) }}
 {{- print "batch/v1" -}}
 {{- else -}}
 {{- print "batch/v1beta1" -}}
