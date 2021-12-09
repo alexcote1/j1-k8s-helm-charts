@@ -143,7 +143,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: ACCESS_TYPE
-                  value: {{ ternary "cluster" "namespace" .Values.rbac.useClusterRole }} 
+                  value: {{ ternary "cluster" "namespace" .Values.rbac.useClusterRole }}
                 - name: NAMESPACE
                   value: {{ .Release.Namespace }}
                 - name: JUPITERONE_ACCOUNT_ID
@@ -161,7 +161,7 @@ spec:
                     secretKeyRef:
                       name: {{ include "graph-kubernetes.fullname" . }}
                       key: jupiteroneIntegrationInstanceId
-                - name: IS_RUNNING_TEST
+                - name: LOAD_KUBERNETES_CONFIG_FROM_DEFAULT
                   value: 'false'
               resources:
                 {{- toYaml .Values.resources | nindent 16 }}
