@@ -4,7 +4,7 @@
 image:
   repository: jupiterone/graph-kubernetes
   pullPolicy: IfNotPresent
-  tag: "0.9.0"
+  tag: "0.9.1"
 
 cronjob:
   schedule: "*/30 * * * *"
