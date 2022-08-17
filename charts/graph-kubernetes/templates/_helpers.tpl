@@ -95,3 +95,10 @@ We also add an extra check on the minimum k8s version because not all vendors
 {{- print "batch/v1beta1" -}}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Return the configured base api url
+*/}}
+{{- define "settings.baseApiUrl" -}}
+{{- default "https://api.us.jupiterone.io" .Values.settings.baseApiUrl | quote }}
+{{- end -}}
