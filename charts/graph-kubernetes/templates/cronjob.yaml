@@ -173,9 +173,9 @@ spec:
                 - mountPath: /kubexit
                   name: kubexit
             - name: otel-collector
-              image: otel/opentelemetry-collector-contrib:0.34.0
+              image: otel/opentelemetry-collector-contrib:0.58.0
               imagePullPolicy: IfNotPresent
-              command: ['/kubexit/kubexit', '/otelcontribcol']
+              command: ['/kubexit/kubexit', '/otelcol-contrib']
               args: ['--config=/conf/otel-agent-config.yaml']
               env:
                 - name: KUBEXIT_NAME
@@ -184,8 +184,8 @@ spec:
                   value: /graveyard
                 - name: KUBEXIT_DEATH_DEPS
                   value: fluent-bit
-                - name: KUBEXIT_BIRTH_DEPS
-                  value: fluent-bit
+                - name: KUBEXIT_GRACE_PERIOD
+                  value: "10s"  
                 - name: KUBEXIT_POD_NAME
                   valueFrom:
                     fieldRef:
@@ -211,6 +211,18 @@ spec:
                   value: fluent-bit
                 - name: KUBEXIT_GRAVEYARD
                   value: /graveyard
+                - name: KUBEXIT_GRACE_PERIOD
+                  value: "10s"
+                - name: KUBEXIT_POD_NAME
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                - name: KUBEXIT_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
+                - name: KUBEXIT_BIRTH_DEPS
+                  value: otel-collector       
                 - name: KUBEXIT_DEATH_DEPS
                   value: graph-kubernetes
               volumeMounts:
@@ -241,7 +253,7 @@ spec:
           tolerations:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          terminationGracePeriodSeconds: 10
+          terminationGracePeriodSeconds: 60
           volumes:
             - name: fluent-bit-agent-config-vol
               configMap:
