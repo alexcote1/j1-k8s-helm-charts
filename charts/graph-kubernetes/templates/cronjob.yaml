@@ -126,7 +126,7 @@ spec:
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               command: ['/kubexit/kubexit', 'yarn']
-              args: ['collect']
+              args: ['execute']
               env:
                 - name: KUBEXIT_NAME
                   value: graph-kubernetes
