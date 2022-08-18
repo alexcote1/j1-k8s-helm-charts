@@ -156,6 +156,8 @@ spec:
                     secretKeyRef:
                       name: {{ include "graph-kubernetes.fullname" . }}
                       key: jupiteroneApiKey
+                - name: JUPITERONE_API_BASE_URL
+                  value: {{ template "settings.baseApiUrl" . }}      
                 - name: INTEGRATION_INSTANCE_ID
                   valueFrom:
                     secretKeyRef:

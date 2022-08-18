@@ -4,7 +4,7 @@
 image:
   repository: jupiterone/graph-kubernetes
   pullPolicy: IfNotPresent
-  tag: "0.9.0"
+  tag: "0.9.1"
 
 cronjob:
   schedule: "*/30 * * * *"
@@ -13,6 +13,9 @@ secrets:
   jupiteroneAccountId:
   jupiteroneApiKey:
   jupiteroneIntegrationInstanceId:
+
+settings:
+  baseApiUrl: https://api.us.jupiterone.io
 
 ## namespaces to ingest (instead of ingesting the entire cluster). Needed if you want to run without Cluster-admin privileges.
 # namespaces:
