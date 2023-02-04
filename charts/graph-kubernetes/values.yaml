@@ -95,8 +95,7 @@ serviceAccount:
   # Annotations to add to the service account
   annotations: {}
 
-securityContext:
-  {}
+securityContext: {}
   # capabilities:
   #   drop:
   #   - ALL
