@@ -6,6 +6,8 @@ image:
   pullPolicy: IfNotPresent
   tag: "0.9.2"
 
+imagePullSecrets: []
+
 cronjob:
   schedule: "*/30 * * * *"
 
