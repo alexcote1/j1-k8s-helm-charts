@@ -16,6 +16,14 @@ secrets:
   jupiteroneApiKey:
   jupiteroneIntegrationInstanceId:
 
+# Use an existing secret for the jupiterone secrets
+existingSecret:
+  # name of the secret. Can be templated.
+  name: ""
+  jupiteroneAccountIdSecretKey: jupiteroneAccountId
+  jupiteroneApiKeySecretKey: jupiteroneApiKey
+  jupiteroneIntegrationInstanceIdSecretKey: jupiteroneIntegrationInstanceId
+
 settings:
   baseApiUrl: https://api.us.jupiterone.io
 
