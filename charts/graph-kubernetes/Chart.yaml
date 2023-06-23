@@ -1,5 +1,5 @@
 apiVersion: v2
-name: graph-kubernetes
+name: graph-kubernetes-nolog
 description:
   Converts K8s resources into a graph model for ingestion into JupiterOne.
 type: application
